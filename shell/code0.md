@@ -23,3 +23,19 @@ function rofi_config() {
 
 rofi_config
 ```
+# 2 设置shell输出文字颜色
+```
+# Set some colors for output messages
+OK="$(tput setaf 2)[OK]$(tput sgr0)"
+ERROR="$(tput setaf 1)[ERROR]$(tput sgr0)"
+NOTE="$(tput setaf 3)[NOTE]$(tput sgr0)"
+INFO="$(tput setaf 4)[INFO]$(tput sgr0)"
+WARN="$(tput setaf 5)[WARN]$(tput sgr0)"
+CAT="$(tput setaf 6)[ACTION]$(tput sgr0)"
+ORANGE=$(tput setaf 166)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4) 
+RESET=$(tput sgr0)
+
+echo "$OK hello"
+```
