@@ -1,0 +1,29 @@
+# 1 修改关闭窗口的快捷键
+
+```bash
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>q']"
+```
+
+# 2 查看快捷键设置
+```bash
+gsettings list-recursively org.gnome.desktop.wm.keybindings
+```
+# 3 切换工作区
+```bash
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt>4']"
+```
+# 3 
+```bash
+#!/bin/bash
+
+name="custom0"
+keybinding="<Alt>t"
+command="rofi -show window"
+id_key="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id_key name "$name"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id_key binding "$keybinding"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id_key command "$command"
+```
