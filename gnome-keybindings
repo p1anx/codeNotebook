@@ -15,8 +15,11 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt>4']"
 
-gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Alt><Shift>space']"
+gsettings set org.gnome.desktop.wm.keybindings activate-window-menu "['<Alt><Shift>v']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Alt>space']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>q']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Alt>f']"
+gsettings set org.gnome.desktop.wm.keybindings begin-resize "['<Shift><Alt>r']"
 ```
 # 3 
 ```bash
