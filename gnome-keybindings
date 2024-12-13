@@ -14,6 +14,9 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt>4']"
+
+gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Alt><Shift>space']"
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>q']"
 ```
 # 3 
 ```bash
@@ -27,3 +30,27 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id_key binding "$keybinding"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$id_key command "$command"
 ```
+## 3.1
+创建一个配置文件, 叫做 gnome_custom_keybinding.ini
+```ini
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Primary><Alt>q'
+command='flameshot gui '
+name=' flameshot'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Primary><Alt>t'
+command='telegram-desktop '
+name=' telegram'
+```
+加载配置文件.
+```
+cat gnome_custom_keybiding.ini | dconf load '/'
+```
+然后就立即可用了.
+# issues
+- (1)快捷键执行命令行必须有具体的路径，即使在环境变量中也没用，例如，/home/xwj/.config/rofi/script/foo.sh
