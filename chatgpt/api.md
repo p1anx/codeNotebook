@@ -65,4 +65,33 @@ print(response.choices[0].message.content, end = '\n')# this part is different
 # print(response)
 
 ```
+# read from PDF
+```python
+import PyPDF2
+class ToMarkdown:
+    def __init__(self, md_file_path):
+        self.md_file = md_file_path
+    def saveas_markdown(self, text):
+        with open(self.md_file, 'w', encoding = 'utf-8') as file:
+            file.write('# tile1\n')
+            file.write(text)
+            file.write('\n\n')
+        print('write over!!!')
+        
 
+
+# 打开 PDF 文件
+file = 'demo.pdf'
+# 创建 PDF 阅读器对象
+pdf_reader = PyPDF2.PdfReader(file)
+
+# 获取 PDF 页数
+num_pages = len(pdf_reader.pages)
+
+# 读取每一页的内容
+text = ""
+print("pages =", num_pages)
+for page_num in range(num_pages):
+    page = pdf_reader.pages[page_num]
+    text += page.extract_text()  # 提取文本
+```
